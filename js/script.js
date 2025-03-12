@@ -123,16 +123,35 @@ document.addEventListener('DOMContentLoaded', function() {
     const sendBtn = document.getElementById('send-btn');
     
     if (chatMessages && userInput && sendBtn) {
-        // Sample responses for the demo
+        // Sample responses for the demo with Indian cultural references and humor
         const botResponses = [
-            "I'm here to help! What would you like to know about The Drona?",
+            "Namaste! I'm here to help! What would you like to know about The Drona?",
             "That's a great question! The Drona can assist with a wide range of tasks including answering questions, providing information, and helping with daily tasks.",
-            "I'm designed to learn from our interactions and get better over time.",
-            "You can use The Drona on web, mobile, and desktop platforms with our premium plans.",
+            "I'm designed to learn from our interactions and get better over time, just like a good student!",
+            "You know, in India we say 'Guru bin gyan nahi' (No knowledge without a teacher). I aim to be that digital guru for you!",
             "Is there anything else you'd like to know about The Drona?",
             "The Drona is named after the legendary teacher from Indian mythology who was known for his wisdom and guidance.",
-            "Our team of AI experts has been developing The Drona for over three years."
+            "I was created by Yaduraj Singh, a passionate AI developer from India.",
+            "Did you know? I can understand both Hindi and English! Try saying 'Namaste' or 'Kaise ho?'",
+            "I'm like a digital pandit, but without the lengthy ceremonies! 😄",
+            "Even AI needs chai breaks sometimes! But don't worry, I'm always ready to help.",
+            "Why did the computer go to the doctor? It had a virus! 🤣 Sorry, I'm still working on my jokes module.",
+            "In the future, I'll be able to understand more Indian languages. Yaduraj is working hard on that!",
+            "If I were human, my favorite food would definitely be samosas. They're just logically the best snack!"
         ];
+        
+        // Funny responses for specific inputs
+        const specialResponses = {
+            "hello": "Namaste! How can I assist you today?",
+            "hi": "Hello there! Ready to chat with your friendly neighborhood AI?",
+            "namaste": "Namaste! 🙏 Aap kaise hain?",
+            "who made you": "I was created by Yaduraj Singh, a brilliant developer from India!",
+            "tell me a joke": "Why don't scientists trust atoms? Because they make up everything! 😄",
+            "who are you": "I am The Drona, named after the legendary guru from Indian mythology. I'm here to guide you with wisdom... and occasional dad jokes!",
+            "what can you do": "I can answer questions, provide information, tell terrible jokes, and pretend I understand the meaning of life. Still working on making chai though!",
+            "thank you": "You're welcome! May your day be as pleasant as finding an extra gulab jamun in your dessert box!",
+            "bye": "Alvida! Come back soon. I'll be here, probably contemplating the digital meaning of life."
+        };
         
         // Function to add a message to the chat
         function addMessage(content, isUser = false) {
@@ -170,9 +189,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Simulate bot thinking
                 setTimeout(() => {
-                    // Get random response
-                    const randomIndex = Math.floor(Math.random() * botResponses.length);
-                    const botResponse = botResponses[randomIndex];
+                    // Check for special responses
+                    const lowerMessage = message.toLowerCase();
+                    let botResponse;
+                    
+                    if (specialResponses[lowerMessage]) {
+                        botResponse = specialResponses[lowerMessage];
+                    } else {
+                        // Get random response
+                        const randomIndex = Math.floor(Math.random() * botResponses.length);
+                        botResponse = botResponses[randomIndex];
+                    }
                     
                     // Add bot response to chat
                     addMessage(botResponse);
@@ -209,7 +236,7 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('Contact Form Submission:', { name, email, subject, message });
             
             // Show success message
-            alert('Thank you for your message! We will get back to you soon.');
+            alert('Thank you for your message! Yaduraj will get back to you soon.');
             
             // Reset form
             contactForm.reset();
@@ -227,7 +254,7 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('Newsletter Subscription:', { email });
             
             // Show success message
-            alert('Thank you for subscribing to our newsletter!');
+            alert('Thank you for subscribing to our newsletter! We promise not to flood your inbox (unlike the monsoon in Mumbai)!');
             
             // Reset form
             newsletterForm.reset();
@@ -236,7 +263,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Animate elements when they come into view
     const animateOnScroll = function() {
-        const elements = document.querySelectorAll('.feature-card, .pricing-card, .testimonial-card, .about-content, .contact-container');
+        const elements = document.querySelectorAll('.feature-card, .creator-content, .testimonial-card, .about-content, .contact-container');
         
         elements.forEach(element => {
             const elementPosition = element.getBoundingClientRect().top;
@@ -250,7 +277,7 @@ document.addEventListener('DOMContentLoaded', function() {
     };
     
     // Set initial styles for animation
-    const elementsToAnimate = document.querySelectorAll('.feature-card, .pricing-card, .testimonial-card, .about-content, .contact-container');
+    const elementsToAnimate = document.querySelectorAll('.feature-card, .creator-content, .testimonial-card, .about-content, .contact-container');
     
     elementsToAnimate.forEach(element => {
         element.style.opacity = '0';
@@ -263,4 +290,20 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Run animation on initial load
     animateOnScroll();
+    
+    // Add random fun facts to the page
+    const funFacts = [
+        "Did you know? The name 'Drona' comes from Sanskrit, meaning 'vessel of knowledge'.",
+        "In the Mahabharata, Guru Drona was the royal preceptor to the Kauravas and Pandavas.",
+        "The first version of The Drona AI could only say 'Hello' and 'Goodbye'. We've come a long way!",
+        "The Drona's code contains exactly 108 comments - an auspicious number in Indian tradition.",
+        "If The Drona were a person, its favorite movie would be '2001: A Space Odyssey'... for obvious reasons."
+    ];
+    
+    const footerJoke = document.querySelector('.footer-joke');
+    if (footerJoke) {
+        // Change the joke every time the page is loaded
+        const randomIndex = Math.floor(Math.random() * funFacts.length);
+        footerJoke.innerHTML = funFacts[randomIndex];
+    }
 }); 

@@ -1,6 +1,10 @@
 # The Drona - AI Chatbot Website
 
-This is a fully functional website for "The Drona" AI chatbot, built using HTML, CSS, and JavaScript. The website showcases the features, pricing, and capabilities of the AI assistant.
+This is a fully functional website for "The Drona" AI chatbot, built using HTML, CSS, and JavaScript. The website showcases the features and capabilities of the AI assistant, which is named after the legendary teacher from Indian mythology.
+
+## About The Project
+
+The Drona is an AI assistant created by Yaduraj Singh, designed to combine cutting-edge technology with Indian cultural context. The chatbot aims to provide a helpful, intuitive, and occasionally humorous assistant that understands not just what users are asking, but the cultural nuances behind their queries.
 
 ## Features
 
@@ -8,18 +12,17 @@ This is a fully functional website for "The Drona" AI chatbot, built using HTML,
 - Interactive UI elements with smooth animations
 - Fully functional navigation with smooth scrolling
 - Interactive chatbot demo on the homepage
-- Pricing toggle between monthly and annual plans
 - FAQ accordions
 - Contact form
 - Newsletter subscription
 - Testimonials slider
+- Humorous elements throughout the site
 
 ## Pages
 
-1. **Home** (`index.html`) - Landing page with hero section, features, demo, testimonials, pricing, and contact sections
-2. **About** (`about.html`) - Information about The Drona, its story, mission, journey, and team
-3. **Pricing** (`pricing.html`) - Detailed pricing information with plan comparison
-4. **Contact** (`contact.html`) - Contact form, information, map, and FAQ
+1. **Home** (`index.html`) - Landing page with hero section, features, demo, testimonials, and contact sections
+2. **About** (`about.html`) - Information about The Drona, its story, mission, journey, and creator
+3. **Contact** (`contact.html`) - Contact form, information, map, and FAQ
 
 ## Technologies Used
 
@@ -35,7 +38,6 @@ This is a fully functional website for "The Drona" AI chatbot, built using HTML,
 The-Drona-Website/
 ├── index.html
 ├── about.html
-├── pricing.html
 ├── contact.html
 ├── css/
 │   └── styles.css
@@ -46,14 +48,11 @@ The-Drona-Website/
 │   ├── about-illustration.svg
 │   ├── pattern.svg
 │   ├── drona-avatar.svg
+│   ├── yaduraj-singh.jpg
 │   ├── testimonial-1.jpg
 │   ├── testimonial-2.jpg
 │   ├── testimonial-3.jpg
-│   ├── team-1.jpg
-│   ├── team-2.jpg
-│   ├── team-3.jpg
-│   └── team-4.jpg
-└── README.md
+│   └── README.md
 ```
 
 ## Getting Started
@@ -68,12 +67,16 @@ The-Drona-Website/
 - Add a blog section with articles about AI and chatbot technology
 - Create a documentation page for API integration
 - Add more interactive demos showcasing The Drona's capabilities
+- Add support for more Indian languages
 
-## Credits
+## Creator
 
-- Illustrations: Placeholder SVGs (to be replaced with actual illustrations)
-- Icons: Font Awesome
-- Fonts: Google Fonts (Poppins)
+This project was created by Yaduraj Singh, a passionate AI developer and innovator from India.
+
+Contact:
+- Email: yadurajsingham@gmail.com
+- Phone: +91 9639585170
+- Location: Lucknow, Uttar Pradesh, India
 
 ## License
 
