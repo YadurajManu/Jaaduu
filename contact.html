@@ -29,94 +29,173 @@
             font-size: 1.1rem;
         }
         
-        .map-container {
-            height: 400px;
+        .contact-section {
+            padding: 80px 0;
+        }
+        
+        .contact-container {
+            display: flex;
+            gap: 50px;
             margin-top: 50px;
+        }
+        
+        .contact-form-container {
+            flex: 1;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-form {
+            background-color: white;
+            padding: 30px;
             border-radius: var(--border-radius);
-            overflow: hidden;
             box-shadow: var(--box-shadow);
         }
         
-        .map-container iframe {
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
             width: 100%;
-            height: 100%;
-            border: none;
+            padding: 12px 15px;
+            border: 1px solid #e1e1e1;
+            border-radius: var(--border-radius);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.1);
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+        
+        .contact-info-icon {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(108, 99, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+        
+        .contact-info-content h3 {
+            margin-bottom: 5px;
+            color: var(--text-dark);
+            font-size: 1.1rem;
+        }
+        
+        .contact-info-content p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        
+        .contact-info-content a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .contact-info-content a:hover {
+            text-decoration: underline;
         }
         
         .faq-section {
-            padding: 80px 0;
-            background-color: var(--bg-light);
+            margin-top: 80px;
         }
         
-        .accordion {
-            max-width: 800px;
-            margin: 50px auto 0;
-        }
-        
-        .accordion-item {
-            margin-bottom: 15px;
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid #e1e1e1;
             border-radius: var(--border-radius);
             overflow: hidden;
-            box-shadow: var(--box-shadow);
-            background-color: white;
         }
         
-        .accordion-header {
+        .faq-question {
             padding: 20px;
             background-color: white;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            font-weight: 500;
+            color: var(--text-dark);
             transition: var(--transition);
         }
         
-        .accordion-header:hover {
+        .faq-question:hover {
             background-color: rgba(108, 99, 255, 0.05);
         }
         
-        .accordion-header h3 {
-            font-size: 1.2rem;
-            margin: 0;
-        }
-        
-        .accordion-header i {
+        .faq-question i {
             color: var(--primary-color);
             transition: var(--transition);
         }
         
-        .accordion-content {
+        .faq-answer {
             padding: 0 20px;
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s ease;
+            transition: max-height 0.3s ease-out;
+            background-color: #f9f9f9;
         }
         
-        .accordion-content p {
-            padding: 0 0 20px;
+        .faq-answer p {
+            padding: 20px 0;
             color: var(--text-light);
+            line-height: 1.6;
         }
         
-        .accordion-item.active .accordion-header {
-            background-color: rgba(108, 99, 255, 0.05);
+        .faq-item.active .faq-question {
+            background-color: rgba(108, 99, 255, 0.1);
         }
         
-        .accordion-item.active .accordion-header i {
+        .faq-item.active .faq-question i {
             transform: rotate(180deg);
         }
         
-        .accordion-item.active .accordion-content {
-            max-height: 1000px;
+        .faq-item.active .faq-answer {
+            max-height: 500px;
         }
         
-        .contact-joke {
-            background-color: rgba(255, 101, 132, 0.1);
-            border-radius: var(--border-radius);
-            padding: 20px;
-            margin: 30px 0;
-            text-align: center;
-            font-style: italic;
-            color: var(--text-light);
+        @media screen and (max-width: 768px) {
+            .contact-container {
+                flex-direction: column;
+            }
+            
+            .contact-info {
+                order: -1;
+            }
         }
     </style>
 </head>
@@ -145,161 +224,160 @@
     <!-- Contact Hero Section -->
     <section class="contact-hero">
         <div class="container">
-            <h1>Get In Touch</h1>
-            <p>Have questions or feedback? I'd love to hear from you.</p>
+            <h1>Get in Touch</h1>
+            <p>Have questions or feedback? We'd love to hear from you! <span class="hinglish">Koi sawal? Hum hain na!</span></p>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="contact">
+    <section class="contact-section">
         <div class="container">
             <div class="section-header">
-                <h2>Contact Me</h2>
-                <p>Reach out to Yaduraj Singh</p>
+                <h2>Contact Us</h2>
+                <p>Reach out to our team <span class="hinglish">Humse baat karein, dil khol ke!</span></p>
             </div>
             <div class="contact-container">
-                <div class="contact-info">
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="info-content">
-                            <h3>Address</h3>
-                            <p>Lucknow, Uttar Pradesh, India</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="info-content">
-                            <h3>Email</h3>
-                            <p>yadurajsingham@gmail.com</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-phone-alt"></i>
-                        </div>
-                        <div class="info-content">
-                            <h3>Phone</h3>
-                            <p>+91 9639585170</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <div class="info-content">
-                            <h3>Working Hours</h3>
-                            <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
-                            <p>Saturday: 10:00 AM - 4:00 PM</p>
-                        </div>
-                    </div>
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <form id="contact-form">
+                <div class="contact-form-container">
+                    <form class="contact-form">
                         <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                            <label for="name">Your Name <span class="hinglish">(Aapka Naam)</span></label>
+                            <input type="text" id="name" name="name" placeholder="Enter your name" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                            <label for="email">Your Email <span class="hinglish">(Aapka Email)</span></label>
+                            <input type="email" id="email" name="email" placeholder="Enter your email" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" id="subject" name="subject" placeholder="Subject">
+                            <label for="subject">Subject <span class="hinglish">(Vishay)</span></label>
+                            <select id="subject" name="subject" required>
+                                <option value="" disabled selected>Select a subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="support">Technical Support</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="partnership">Partnership Opportunity</option>
+                                <option value="other">Other</option>
+                            </select>
                         </div>
                         <div class="form-group">
-                            <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                            <label for="message">Your Message <span class="hinglish">(Aapka Sandesh)</span></label>
+                            <textarea id="message" name="message" placeholder="Type your message here..." required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
+                        <button type="submit" class="btn btn-primary">Send Message <span class="hinglish">(Bhejiye)</span></button>
                     </form>
                 </div>
-            </div>
-            <div class="contact-joke">
-                <p>Why did the AI assistant go to therapy? It had too many <i>artificial emotional issues</i>! 😄</p>
-                <p>Don't worry, The Drona is much more stable... most of the time!</p>
-            </div>
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d227748.99973450298!2d80.80242045!3d26.84892635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399bfd991f32b16b%3A0x93ccba8909978be7!2sLucknow%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1627309332339!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+                <div class="contact-info">
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-info-content">
+                            <h3>Email Us</h3>
+                            <p>For general inquiries: <a href="mailto:info@thedrona.ai">info@thedrona.ai</a></p>
+                            <p>For support: <a href="mailto:support@thedrona.ai">support@thedrona.ai</a></p>
+                            <p class="hinglish">Email bhejiye, jaldi jawab milega! Promise!</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-info-content">
+                            <h3>Call Us</h3>
+                            <p>Customer Support: <a href="tel:+919876543210">+91 98765 43210</a></p>
+                            <p>Office: <a href="tel:+911234567890">+91 12345 67890</a></p>
+                            <p class="hinglish">Phone karein, hum hain hamesha ready!</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-info-content">
+                            <h3>Visit Us</h3>
+                            <p>The Drona AI Technologies<br>
+                            4th Floor, Tech Park<br>
+                            Koramangala, Bangalore - 560034<br>
+                            India</p>
+                            <p class="hinglish">Kabhi Bangalore aao, chai pe charcha karenge!</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-info-content">
+                            <h3>Working Hours</h3>
+                            <p>Monday - Friday: 9:00 AM - 6:00 PM (IST)<br>
+                            Saturday: 10:00 AM - 2:00 PM (IST)<br>
+                            Sunday: Closed</p>
+                            <p class="hinglish">Hum toh kaam karte hain, par Drona 24x7 available hai! Woh kabhi nahi sota!</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- FAQ Section -->
-    <section class="faq-section">
+    <section class="contact-section" style="background-color: var(--bg-light);">
         <div class="container">
             <div class="section-header">
                 <h2>Frequently Asked Questions</h2>
-                <p>Find answers to common questions about The Drona</p>
+                <p>Find answers to common questions <span class="hinglish">Aapke sawaalon ke jawab</span></p>
             </div>
-            <div class="accordion">
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        <h3>What is The Drona?</h3>
+            <div class="faq-section">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What is The Drona and how does it work? <span class="hinglish">(Drona kya hai aur kaise kaam karta hai?)</span></span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
-                    <div class="accordion-content">
-                        <p>The Drona is an advanced AI assistant designed to help you with a wide range of tasks, from answering questions and providing information to assisting with daily tasks and workflows. Named after the legendary teacher from Indian mythology, The Drona aims to guide and empower users with knowledge and capabilities.</p>
+                    <div class="faq-answer">
+                        <p>The Drona is an AI assistant that uses advanced natural language processing and machine learning to understand and respond to your queries, perform tasks, and provide information. It works by analyzing your input, understanding the context, and generating appropriate responses or actions. <span class="hinglish">Bilkul aapke dimag ki tarah, bas thoda tez!</span></p>
                     </div>
                 </div>
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        <h3>How does The Drona work?</h3>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Is my data safe with The Drona? <span class="hinglish">(Kya mera data Drona ke saath surakshit hai?)</span></span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
-                    <div class="accordion-content">
-                        <p>The Drona uses advanced natural language processing and machine learning algorithms to understand your queries and provide relevant responses. It continuously learns from interactions to improve its capabilities and provide more personalized assistance over time.</p>
+                    <div class="faq-answer">
+                        <p>Yes, your data security is our top priority. The Drona employs end-to-end encryption and follows strict data protection protocols. We do not sell or share your personal information with third parties. Your conversations are private and secure. <span class="hinglish">Aapka data, aapka raaz - hum dono ko sambhalte hain bade dhyaan se!</span></p>
                     </div>
                 </div>
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        <h3>Is my data secure with The Drona?</h3>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can The Drona understand Indian languages and cultural references? <span class="hinglish">(Kya Drona Bharatiya bhashaon aur sanskruti ko samajhta hai?)</span></span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
-                    <div class="accordion-content">
-                        <p>Yes, data security is my top priority. All conversations with The Drona are encrypted, and I adhere to strict privacy policies. I do not sell or share your personal data with third parties. You can review the detailed privacy policy for more information.</p>
+                    <div class="faq-answer">
+                        <p>Absolutely! The Drona is designed with a special focus on understanding Indian languages, dialects, and cultural nuances. It can comprehend Hinglish (Hindi-English mix) and is continuously learning to better understand various Indian cultural references and contexts. <span class="hinglish">Hum toh desi hain ji, bilkul aapki tarah!</span></p>
                     </div>
                 </div>
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        <h3>What platforms can I use The Drona on?</h3>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How accurate is The Drona in answering questions? <span class="hinglish">(Drona kitna sahi jawab deta hai?)</span></span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
-                    <div class="accordion-content">
-                        <p>The Drona is available on web browsers, iOS and Android mobile apps, and desktop applications for Windows and macOS. It's designed to work seamlessly across all your devices.</p>
+                    <div class="faq-answer">
+                        <p>The Drona strives for high accuracy in its responses. It's trained on a vast dataset and is continuously learning and improving. However, like any AI, it may occasionally provide incomplete or incorrect information. We recommend verifying critical information from multiple sources. <span class="hinglish">Hum bahut smart hain, lekin kabhi kabhi thodi si galti ho jati hai. Maaf kar dena!</span></p>
                     </div>
                 </div>
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        <h3>Can I customize The Drona for my specific needs?</h3>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I customize The Drona for my specific needs? <span class="hinglish">(Kya main Drona ko apne hisaab se customize kar sakta hoon?)</span></span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
-                    <div class="accordion-content">
-                        <p>Yes, The Drona offers customization options. You can train The Drona on your specific data and integrate it with your existing systems and workflows. Contact me directly to discuss your specific requirements and how The Drona can be tailored to meet them.</p>
+                    <div class="faq-answer">
+                        <p>Yes, The Drona is designed to be adaptable and can be customized to suit your specific requirements. Whether you need it for personal use, business applications, or specialized tasks, we can tailor The Drona's capabilities to meet your needs. Contact our team for customization options. <span class="hinglish">Bilkul! Jaise aapko chahiye, waise bana lenge. Bas ek baar bataiye!</span></p>
                     </div>
                 </div>
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        <h3>How do I get started with The Drona?</h3>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What makes The Drona different from other AI assistants? <span class="hinglish">(Drona doosre AI assistants se alag kaise hai?)</span></span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
-                    <div class="accordion-content">
-                        <p>Getting started is easy! Simply sign up for an account on our website, and you can start using The Drona immediately. If you have any questions during the setup process, feel free to reach out through the contact form, and I'll be happy to assist you.</p>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <div class="accordion-header">
-                        <h3>Does The Drona understand Indian languages?</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="accordion-content">
-                        <p>Yes! The Drona has been designed with a special focus on Indian languages and cultural context. It currently supports Hindi and English, with plans to add more Indian languages in the future. The Drona understands not just the words, but also the cultural nuances behind them.</p>
+                    <div class="faq-answer">
+                        <p>The Drona stands out with its deep understanding of Indian cultural context, its ability to comprehend and respond in Hinglish, and its personalized approach to user interaction. Unlike generic AI assistants, The Drona is designed specifically with Indian users in mind, making it more relatable and effective for our audience. <span class="hinglish">Hum dil se Indian hain, isliye aapko behtar samajhte hain!</span></p>
                     </div>
                 </div>
             </div>
@@ -311,7 +389,7 @@
         <div class="container">
             <div class="newsletter-content">
                 <h2>Stay Updated</h2>
-                <p>Subscribe to our newsletter for the latest updates and features</p>
+                <p>Subscribe to our newsletter for the latest updates and features. <span class="hinglish">Naye updates ke liye abhi subscribe karein!</span></p>
                 <form class="newsletter-form">
                     <input type="email" placeholder="Your Email Address" required>
                     <button type="submit" class="btn btn-primary">Subscribe</button>
@@ -359,38 +437,11 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2023 The Drona. Created by Yaduraj Singh. All rights reserved.</p>
-                <p class="footer-joke">Why did the AI go to school? To improve its <i>artificial intelligence</i>!</p>
+                <p class="footer-joke hinglish">Ek user ne Drona se pucha: "Tum kitne smart ho?" Drona bola: "Jitna aap sochte ho, usse thoda kam!" 😂</p>
             </div>
         </div>
     </footer>
 
     <script src="js/script.js"></script>
-    <script>
-        // FAQ Accordion Functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const accordionItems = document.querySelectorAll('.accordion-item');
-            
-            accordionItems.forEach(item => {
-                const header = item.querySelector('.accordion-header');
-                
-                header.addEventListener('click', () => {
-                    // Toggle active class on the clicked item
-                    item.classList.toggle('active');
-                    
-                    // Close other accordion items
-                    accordionItems.forEach(otherItem => {
-                        if (otherItem !== item) {
-                            otherItem.classList.remove('active');
-                        }
-                    });
-                });
-            });
-            
-            // Open the first accordion item by default
-            if (accordionItems.length > 0) {
-                accordionItems[0].classList.add('active');
-            }
-        });
-    </script>
 </body>
 </html> 
