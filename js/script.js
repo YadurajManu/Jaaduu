@@ -125,32 +125,32 @@ document.addEventListener('DOMContentLoaded', function() {
     if (chatMessages && userInput && sendBtn) {
         // Sample responses for the demo with Indian cultural references and humor
         const botResponses = [
-            "Namaste! I'm here to help! What would you like to know about The Drona?",
-            "That's a great question! The Drona can assist with a wide range of tasks including answering questions, providing information, and helping with daily tasks.",
-            "I'm designed to learn from our interactions and get better over time, just like a good student!",
-            "You know, in India we say 'Guru bin gyan nahi' (No knowledge without a teacher). I aim to be that digital guru for you!",
-            "Is there anything else you'd like to know about The Drona?",
-            "The Drona is named after the legendary teacher from Indian mythology who was known for his wisdom and guidance.",
-            "I was created by Yaduraj Singh, a passionate AI developer from India.",
-            "Did you know? I can understand both Hindi and English! Try saying 'Namaste' or 'Kaise ho?'",
-            "I'm like a digital pandit, but without the lengthy ceremonies! 😄",
-            "Even AI needs chai breaks sometimes! But don't worry, I'm always ready to help.",
-            "Why did the computer go to the doctor? It had a virus! 🤣 Sorry, I'm still working on my jokes module.",
-            "In the future, I'll be able to understand more Indian languages. Yaduraj is working hard on that!",
-            "If I were human, my favorite food would definitely be samosas. They're just logically the best snack!"
+            "Namaste! I'm here to help! What would you like to know about The Drona? <span class='hinglish'>Aap batao, main sunne ke liye taiyar hoon!</span>",
+            "That's a great question! The Drona can assist with a wide range of tasks including answering questions, providing information, and helping with daily tasks. <span class='hinglish'>Koi bhi sawal pucho, jawab milega pakka!</span>",
+            "I'm designed to learn from our interactions and get better over time, just like a good student! <span class='hinglish'>Roz naya kuch seekhta hoon main!</span>",
+            "You know, in India we say 'Guru bin gyan nahi' (No knowledge without a teacher). I aim to be that digital guru for you! <span class='hinglish'>Aapka digital guru ban ke khush hoon!</span>",
+            "Is there anything else you'd like to know about The Drona? <span class='hinglish'>Aur kuch janna chahte hain?</span>",
+            "The Drona is named after the legendary teacher from Indian mythology who was known for his wisdom and guidance. <span class='hinglish'>Mahabharat ke guru Dronacharya se inspire hoon main!</span>",
+            "I was created by Yaduraj Singh, a passionate AI developer from India. <span class='hinglish'>Yaduraj Singh ji ne banaya hai mujhe, bade mehnat se!</span>",
+            "Did you know? I can understand both Hindi and English! Try saying 'Namaste' or 'Kaise ho?' <span class='hinglish'>Hindi-English dono samajh sakta hoon main!</span>",
+            "I'm like a digital pandit, but without the lengthy ceremonies! <span class='hinglish'>Digital pandit samjho mujhe, par pooja-path ki zaroorat nahi!</span> 😄",
+            "Even AI needs chai breaks sometimes! But don't worry, I'm always ready to help. <span class='hinglish'>Kabhi kabhi mujhe bhi chai break chahiye, par aapki help ke liye hamesha ready!</span>",
+            "Why did the computer go to the doctor? It had a virus! <span class='hinglish'>Thoda hasna bhi zaroori hai!</span> 🤣 Sorry, I'm still working on my jokes module.",
+            "In the future, I'll be able to understand more Indian languages. Yaduraj is working hard on that! <span class='hinglish'>Jald hi aur bhi Indian languages seekh loonga!</span>",
+            "If I were human, my favorite food would definitely be samosas. They're just logically the best snack! <span class='hinglish'>Samose se tasty kuch nahi duniya mein!</span>"
         ];
         
         // Funny responses for specific inputs
         const specialResponses = {
-            "hello": "Namaste! How can I assist you today?",
-            "hi": "Hello there! Ready to chat with your friendly neighborhood AI?",
-            "namaste": "Namaste! 🙏 Aap kaise hain?",
-            "who made you": "I was created by Yaduraj Singh, a brilliant developer from India!",
-            "tell me a joke": "Why don't scientists trust atoms? Because they make up everything! 😄",
-            "who are you": "I am The Drona, named after the legendary guru from Indian mythology. I'm here to guide you with wisdom... and occasional dad jokes!",
-            "what can you do": "I can answer questions, provide information, tell terrible jokes, and pretend I understand the meaning of life. Still working on making chai though!",
-            "thank you": "You're welcome! May your day be as pleasant as finding an extra gulab jamun in your dessert box!",
-            "bye": "Alvida! Come back soon. I'll be here, probably contemplating the digital meaning of life."
+            "hello": "Namaste! How can I assist you today? <span class='hinglish'>Kaise hain aap?</span>",
+            "hi": "Hello there! Ready to chat with your friendly neighborhood AI? <span class='hinglish'>Baat karne ke liye taiyar?</span>",
+            "namaste": "Namaste! 🙏 <span class='hinglish'>Aap kaise hain? Sab changa si?</span>",
+            "who made you": "I was created by Yaduraj Singh, a brilliant developer from India! <span class='hinglish'>Yaduraj Singh ji ne banaya hai mujhe, ekdum first class!</span>",
+            "tell me a joke": "Why don't scientists trust atoms? Because they make up everything! <span class='hinglish'>Samjhe? Atoms sab kuch 'make up' karte hain!</span> 😄",
+            "who are you": "I am The Drona, named after the legendary guru from Indian mythology. I'm here to guide you with wisdom... and occasional dad jokes! <span class='hinglish'>Main hoon Drona, aapka digital dost!</span>",
+            "what can you do": "I can answer questions, provide information, tell terrible jokes, and pretend I understand the meaning of life. Still working on making chai though! <span class='hinglish'>Bas chai banana nahi aata, baaki sab kar leta hoon!</span>",
+            "thank you": "You're welcome! May your day be as pleasant as finding an extra gulab jamun in your dessert box! <span class='hinglish'>Aapka din mithai ki tarah meetha ho!</span>",
+            "bye": "Alvida! Come back soon. I'll be here, probably contemplating the digital meaning of life. <span class='hinglish'>Phir milenge, tab tak digital duniya mein maze karta rahunga!</span>"
         };
         
         // Function to add a message to the chat
@@ -218,6 +218,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // Chat suggestion chips functionality
+    window.suggestMessage = function(message) {
+        const userInput = document.getElementById('user-input');
+        if (userInput) {
+            userInput.value = message;
+            document.getElementById('send-btn').click();
+        }
+    };
+    
     // Form Submission Handling
     const contactForm = document.getElementById('contact-form');
     const newsletterForm = document.querySelector('.newsletter-form');
@@ -236,7 +245,7 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('Contact Form Submission:', { name, email, subject, message });
             
             // Show success message
-            alert('Thank you for your message! Yaduraj will get back to you soon.');
+            alert('Thank you for your message! Yaduraj will get back to you soon. Dhanyavaad! 🙏');
             
             // Reset form
             contactForm.reset();
@@ -254,7 +263,7 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('Newsletter Subscription:', { email });
             
             // Show success message
-            alert('Thank you for subscribing to our newsletter! We promise not to flood your inbox (unlike the monsoon in Mumbai)!');
+            alert('Thank you for subscribing to our newsletter! We promise not to flood your inbox (unlike the monsoon in Mumbai)! Shukriya! 🙏');
             
             // Reset form
             newsletterForm.reset();
@@ -291,13 +300,16 @@ document.addEventListener('DOMContentLoaded', function() {
     // Run animation on initial load
     animateOnScroll();
     
-    // Add random fun facts to the page
+    // Add random fun facts and Hinglish phrases to the page
     const funFacts = [
-        "Did you know? The name 'Drona' comes from Sanskrit, meaning 'vessel of knowledge'.",
-        "In the Mahabharata, Guru Drona was the royal preceptor to the Kauravas and Pandavas.",
-        "The first version of The Drona AI could only say 'Hello' and 'Goodbye'. We've come a long way!",
-        "The Drona's code contains exactly 108 comments - an auspicious number in Indian tradition.",
-        "If The Drona were a person, its favorite movie would be '2001: A Space Odyssey'... for obvious reasons."
+        "Did you know? The name 'Drona' comes from Sanskrit, meaning 'vessel of knowledge'. <span class='hinglish'>Gyaan ka bhandaar hai Drona!</span>",
+        "In the Mahabharata, Guru Drona was the royal preceptor to the Kauravas and Pandavas. <span class='hinglish'>Mahabharat ke sabse gyaani guru!</span>",
+        "The first version of The Drona AI could only say 'Hello' and 'Goodbye'. <span class='hinglish'>Ab dekho kitna kuch bol leta hai!</span>",
+        "The Drona's code contains exactly 108 comments - an auspicious number in Indian tradition. <span class='hinglish'>108 - shubh ank hai!</span>",
+        "If The Drona were a person, its favorite movie would be '2001: A Space Odyssey'... for obvious reasons. <span class='hinglish'>Space movies ka deewana hai yeh!</span>",
+        "The Drona can process information faster than you can say 'Supercalifragilisticexpialidocious'! <span class='hinglish'>Bijli se bhi tez hai dimag iska!</span>",
+        "Yaduraj once stayed awake for 36 hours straight while coding The Drona. <span class='hinglish'>Neend se zyada zaroori tha code!</span>",
+        "The Drona's favorite quote: 'To err is human, to really mess things up requires a computer.' <span class='hinglish'>Galti insaan se hoti hai, computer se badi galti!</span> 😄"
     ];
     
     const footerJoke = document.querySelector('.footer-joke');
